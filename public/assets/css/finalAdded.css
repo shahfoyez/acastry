@@ -1,0 +1,68 @@
+.foy-see-more{
+    text-decoration: none;
+}
+.foy-create-button{
+    padding: 10px;
+    border-radius: 5px;
+    background: #29A3DA;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+.input.error input {
+    border: 1px solid #fa1515;
+  }
+  .error-msg {
+    color: red;
+    font-family: "Poppins";
+    font-size: 14px;
+  }
+  .alert {
+    padding: 15px;
+    background-color: #fb6a5f;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover {
+    color: black;
+}
+.foy-dactive{
+    background: #ecf4fe;
+}
+.foy-dactive:hover{
+    background: #ecf4fe !important;
+    color: #212529;
+}
+.foy-profile-name a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.foy-profile-name a:hover{
+    color: green;
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .foy-profile-name {
+         display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
+
+}
