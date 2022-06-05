@@ -20,20 +20,20 @@ return new class extends Migration
             ->constrained()
             ->onDelete('cascade');
             $table->string('type');
-            $table->string('topic');
+            $table->string('topic')->nullable();
             $table->unsignedBigInteger('added_by');
             $table->foreign('added_by')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
-            $table->unsignedBigInteger('updated_by');
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('updated_by')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('No Action');
-            $table->boolean('pin_status');
+            $table->boolean('pin_status')->nullable();
             $table->timestamps();
         });
     }

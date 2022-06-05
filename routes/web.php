@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\PostCommentController;
+use App\Http\Controllers\ClassroomPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,11 +42,32 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/unpinClass/{classroom}', 'unpinClass');
         Route::post('/deleteClassroom/{classroom}', 'deleteClass');
         Route::get('/classroomStream/{classroom}', 'showStream');
+        Route::get('/classroomClassworks/{classroom}', 'showClasswork');
+        Route::get('/classroomIndustryWorks/{classroom}', 'showMaterial');
+        Route::get('/classroomPeople/{classroom}', 'showPeople');
+        Route::get('/classroomDiscussion/{classroom}', 'showDiscussion');
+        Route::get('/classroomGrades/{classroom}', 'showGrades');
     });
 
-    Route::get('/stream', function () {
-        return view('stream');
+    // ClassroomPost Controller Group
+    Route::controller(ClassroomPostController::class)->group(function () {
+        Route::post('/addClassroomPost/{classroom}', 'store');
+        Route::post('/deletePost/{post}', 'destroy');
     });
+    // PostCommentController Group
+    Route::controller(PostCommentController::class)->group(function () {
+        Route::post('/addPostComment/{post}', 'store');
+        Route::get('/deletePostComment/{postComment}', 'destroy');
+    });
+
+
+
+    // ClassworkController Group
+    Route::controller(PostCommentController::class)->group(function () {
+        Route::post('/addPostComment/{post}', 'store');
+        Route::get('/deletePostComment/{postComment}', 'destroy');
+    });
+     
     Route::get('/classrooms', function () {
         return view('classrooms');
     });

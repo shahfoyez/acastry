@@ -1,6 +1,7 @@
 @include('shared.header')
 <body>
     @include('navbar.navbar')
+
     @yield('content')
 
     @include('shared.footer')
@@ -30,8 +31,8 @@
     ></script>
     <script>
         $(document).on("click", ".foy-dm-trigger", function () {
-            var itemid= $(this).attr('data-item');
-            $("#foy-modal-item").attr("action","/deleteClassroom/"+itemid)
+            var deleteSlug= $(this).attr('data-item');
+            $("#foy-modal-item").attr("action", deleteSlug)
         });
     </script>
 </body>

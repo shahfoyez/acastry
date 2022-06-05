@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Classroom;
+use App\Models\PostComment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -21,6 +22,9 @@ class User extends Authenticatable
     }
     public function classroom(){
         return $this->hasMany(Classroom::class, 'added_by');
+    }
+    public function postComment(){
+        return $this->hasMany(PostComment::class, 'added_by');
     }
     // public function post(){
     //     return $this->hasMany(Post::class, 'user_id');

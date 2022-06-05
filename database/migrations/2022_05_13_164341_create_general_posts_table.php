@@ -29,7 +29,7 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
             $table->timestamps();
-            $table->unsignedBigInteger('updated_by');
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('updated_by')
             ->references('id')
             ->on('users')

@@ -7,11 +7,14 @@ use App\Models\Classroom;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\ClassroomMember;
+use App\Models\ClassroomPost;
+
 
 class ClassroomController extends Controller
 {
     public function index()
-    {   $users  = ClassroomMember::orderBy('created_at', 'DESC')->get()->where('member_id', auth()->user()->id);
+    {   
+        $users  = ClassroomMember::orderBy('created_at', 'DESC')->get()->where('member_id', auth()->user()->id);
         // $teachings = ClassroomMember::get()
         //     ->where('member_id', auth()->user()->id)
         //     ->where('is_teacher', 1);
@@ -98,7 +101,36 @@ class ClassroomController extends Controller
         return redirect('/')->with('message', 'Classroom has been deleted');
     }
     public function showStream(Classroom $classroom){
-        //  dd($classroom);
+        return view('stream', [
+            'classroom' => $classroom
+        ]);
+    }
+    public function showClasswork(Classroom $classroom){
+        return view('classwork', [
+            'classroom' => $classroom
+        ]);
+    }
+    public function showMaterial(Classroom $classroom){
+        return view('stream', [
+            'classroom' => $classroom
+        ]);
+    }
+    public function showIndustryWork(Classroom $classroom){
+        return view('stream', [
+            'classroom' => $classroom
+        ]);
+    }
+    public function showPeople(Classroom $classroom){
+        return view('stream', [
+            'classroom' => $classroom
+        ]);
+    }
+    public function showDiscussion(Classroom $classroom){
+        return view('stream', [
+            'classroom' => $classroom
+        ]);
+    }
+    public function showGrades(Classroom $classroom){
         return view('stream', [
             'classroom' => $classroom
         ]);

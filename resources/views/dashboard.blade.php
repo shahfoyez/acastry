@@ -12,10 +12,10 @@
             </div>
         @endif --}}
         @if (session()->has('message'))
-        <div class="alert mt-5">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            {{ session('message') }}
-        </div>
+            <div class="alert mt-5">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ session('message') }}
+            </div>
         @endif
         @if($users->count()>0)
             {{-- @foreach ($users as $user) --}}
@@ -102,7 +102,7 @@
                                             </li>
                                             <li>
                                                 <a href="/deleteClassroom/{{ $teaching->classroom->id }}" class="dd-item  dropdown-item py-2 border-bottom foy-dm-trigger" data-bs-toggle="modal"
-                                                data-bs-target="#confirmDelete" data-item="{{ $teaching->classroom->id }}">Delete</a>
+                                                data-bs-target="#confirmDelete" data-item="{{ '/deleteClassroom/'.$teaching->classroom->id }}">Delete</a>
                                             </li>
                                             @if ($teaching->classroom->pin_status==1)
                                                 <li>
@@ -113,14 +113,9 @@
                                                     <a class="dd-item dropdown-item py-2 border-bottom" href="/pinClass/{{ $teaching->classroom->id }}">Pin</a>
                                                 </li>
                                             @endif
-                                            {{-- <li>
-                                                <a class="dd-item  dropdown-item py-2 border-bottom" data-bs-toggle="modal"
-                                                data-bs-target="#confirmDelete">Pin</a>
-                                            </li> --}}
                                         </ul>
                                     </div>
                                     {{-- dropdown end --}}
-
                                 </div>
                             @endforeach
                         @endif
@@ -159,6 +154,10 @@
                                         <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
                                             <li>
                                                 <a class="dd-item dropdown-item py-2 border-bottom" href="#">Edit</a>
+                                            </li>
+                                            <li>
+                                                <a href="/leaveClassroom/{{ $join->classroom->id }}" class="dd-item  dropdown-item py-2 border-bottom foy-dm-trigger" data-bs-toggle="modal"
+                                                data-bs-target="#confirmDelete" data-item="{{ '/leaveClassroom/'.$join->classroom->id }}">Leave</a>
                                             </li>
                                             @if ($join->classroom->pin_status==1)
                                                 <li>

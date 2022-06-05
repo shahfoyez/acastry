@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('general_post_id');
             $table->foreign('general_post_id')
                 ->references('id')
-                ->on('materials')
+                ->on('general_posts')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
             $table->string('type');

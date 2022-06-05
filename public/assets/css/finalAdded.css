@@ -53,6 +53,125 @@
 .foy-profile-name a:hover{
     color: green;
 }
+.foy-nav-item{
+    background:  #FFFFFF;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(41, 163, 218, 0.1);
+    border-top: 1px solid rgba(41, 163, 218, 0.1);
+    /* filter: drop-shadow(0px 10px 30px rgba(183, 183, 183, 0.1)); */
+}
+.foy-nav-link{
+    padding: 15px 12px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #1A3447;
+}
+.foy-table tr td:first-child{
+    padding-right:0px !important;
+}
+.foy-nav-pills li:first-child{
+
+}
+.foy-nav-pills li:last-child {
+    border-radius: 0px 10px 10px 0px;
+    border-right: 1px solid rgba(41, 163, 218, 0.1);
+}
+.foy-nav-pills li:first-child {
+    border-radius: 10px 0px 0px 10px;
+    border-left: 1px solid rgba(41, 163, 218, 0.1);
+}
+
+.foy-copy input#myInput {
+height: 47px;
+width: 65%;
+text-align: center;
+background: #FFFFFF;
+border-radius: 10px 0 0 10px;
+font-weight: 600;
+font-size: 18px;
+color: #1A3447;
+background: #FFFFFF;
+border: none;
+border-radius: 6px 0px 0px 6px;
+}
+button.foy-copy-button {
+font-weight: 600;
+font-weight: 500;
+font-size: 18px;
+width: 35% !important;
+color: #fff;
+background: #29a3da;
+width: 188px;
+height: 47px;
+border: none;
+box-shadow: 5px 6px 30px rgb(41 163 218 / 20%);
+border-radius: 0px 6px 6px 0px;
+}
+  /* accordion */
+
+  .accordion-button:not(.collapsed)::after {
+    display: none;
+  }
+  .accordion-button::after {
+    display: none;
+  }
+  .accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #29a3da;
+    border: none;
+  }
+  .accordion-button:focus {
+    border: none;
+    box-shadow: none;
+  }
+  .accordion-item {
+    border: none;
+  }
+  .accordion-item:last-of-type {
+    border-radius: 15px;
+  }
+  .accordion-item:first-of-type {
+    border-radius: 15px;
+  }
+  .accordion-item:first-of-type .accordion-button {
+    border-radius: 15px 15px 0px 0px;
+  }
+  .accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 15px;
+  }
+  .accordion-body {
+    border: 1px solid rgba(41, 163, 218, 0.1);
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 0px 15px 40px rgb(183 183 183 / 12%);
+  }
+  .notice {
+    border-radius: 6px;
+    font-family: "Poppins";
+    background: #29a3da;
+    padding: 20px;
+    border: none;
+}
+.notice-p {
+    padding: 5px;
+}
+.notice-p a{
+    color: #fff;
+}
+.notice-p:hover {
+    border-bottom: 1px solid #fff;
+}
+.points, .due, .topic {
+    width: 30%;
+}
+.topic-input {
+    width: 100%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    background: #f6f6f6;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 767px) {
     .foy-profile-name {
          display: none;
