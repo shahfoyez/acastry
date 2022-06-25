@@ -24,13 +24,13 @@ return new class extends Migration
                 ->onUpdate('cascade');
             $table->integer('t_grade')->nullable();
             $table->integer('i_grade')->nullable();
-            $table->unsignedBigInteger('tg_added_by');
+            $table->unsignedBigInteger('tg_added_by')->nullable();
             $table->foreign('tg_added_by')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('tg_updated_by');
+            $table->unsignedBigInteger('tg_updated_by')->nullable();
             $table->foreign('tg_updated_by')
                 ->references('id')
                 ->on('users')

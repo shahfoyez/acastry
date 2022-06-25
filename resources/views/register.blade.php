@@ -80,8 +80,8 @@
             <select name="role" class="input">
               <option hidden value="">Student</option>
               <option class="opcolor" value="student">Student</option>
-              <option class="opcolor" value="student">Teacher</option>
-              <option class="opcolor" value="student">Industry</option>
+              <option class="opcolor" value="teacher">Teacher</option>
+              <option class="opcolor" value="industry">Industry</option>
             </select>
             <label class="placeholder"
               >Regester as <i class="fa-solid fa-angle-down"></i

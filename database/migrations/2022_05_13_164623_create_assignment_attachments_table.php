@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('assignment_id');
             $table->foreign('assignment_id')
                 ->references('id')
-                ->on('materials')
+                ->on('assignments')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
             $table->string('type');

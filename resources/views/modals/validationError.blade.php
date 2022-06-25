@@ -10,7 +10,7 @@
         </div>
         <div class="modal-body">
             @if ($errors->any())
-                @error('classCode')
+                @error('code')
                     <div class="alert alert-warning" role="alert">
                         <p class="error text-danger" style="font-size: 15px; margin-bottom:0px">{{ $message }}</p>
                     </div>
@@ -28,3 +28,4 @@
       </div>
     </div>
   </div>
+

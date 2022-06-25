@@ -1,0 +1,11 @@
+@if($attachment->type=='image/png' || $attachment->type=='image/jpeg')
+    @include('components.assignmentMarking.image')
+@elseif($attachment->type=='application/pdf')
+    @include('components.assignmentMarking.pdf')
+@elseif($attachment->type=='application/x-zip-compressed')
+    @include('components.assignmentMarking.zip')
+@elseif($attachment->type=='application/msword')
+    @include('components.assignmentMarking.doc')
+@elseif($attachment->type=='video/mp4')
+    @include('components.assignmentMarking.video')
+@endif

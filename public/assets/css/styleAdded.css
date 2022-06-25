@@ -147,7 +147,7 @@ position: absolute;
 
 /* Post */
 .foy-post-RearangeBox {
-  width: 200px;
+  /* width: 200px; */
   float: left;
   text-align: center;
 }

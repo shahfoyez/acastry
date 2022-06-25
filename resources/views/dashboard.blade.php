@@ -26,7 +26,7 @@
                         @if($pins->count()>0)
                             <div class="pc d-flex">
                                 <div class="d-flex">
-                                    <p>Pinned class</p>
+                                    <p class="foy-chead">Pinned class</p>
                                     <img class="mx-2 mt-1" src="{{ asset('assets/redPin.png') }}" alt="" width="16" height="16"
                                     />
                                 </div>
@@ -34,7 +34,7 @@
                             <div class="justify-content-between">
                                 <div class="row flex-wrap">
                                     @foreach ($pins as $pin)
-                                    <div class="col-sm-12 col-lg-6 col-md-6 p-2 ">
+                                    <div class="col-sm-12 col-lg-6 col-md-6 p-2">
                                         <div class="st-card d-flex align-items-center p-2 justify-content-between">
                                             <div class="d-flex align-items-center">
                                                 <img class="st-img rounded-circle mx-3" src="{{ $pin->classroom->user->image ? asset($pin->classroom->user->image) : asset('assets/defaultProfile.png')}}" alt="" width="52" height="52" />
@@ -53,7 +53,6 @@
                                                 <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
                                                     <li><a class="dd-item dropdown-item py-2 border-bottom" href="#">Edit</a></li>
                                                     <li><a class="dd-item dropdown-item py-2 border-bottom" href="/unpinClass/{{ $pin->classroom->id }}">Unpin</a></li>
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -67,20 +66,20 @@
 
                         <!-- Teaching start -->
                         @if($teachings->count()>0)
-                            <div class="pc d-flex my-3">
+                            <div class="pc d-flex">
                                 <div class="col-6 d-flex">
-                                    <p>
+                                    <p class="foy-chead">
                                         Teaching<span class="dash-notification badge rounded-pill pb-1 ms-2">{{ $teachings->count() }}</span>
                                     </p>
                                 </div>
                                 <div class="col-6 text-end">
                                     <p class="as-dt">
-                                        <a href="" class="foy-see-more">view all</a>
+                                        <a href="/classTeaching/{{ auth()->user()->id }}" class="foy-see-more">view all</a>
                                     </p>
                                 </div>
                             </div>
                             @foreach ($teachings as $teaching)
-                                <div class="st-card col-lg-12 d-flex justify-content-between py-3 my-2 ">
+                                <div class="st-card col-lg-12 d-flex justify-content-between py-3 my-2">
                                     <div class="d-flex align-items-center col position-relative">
                                         <img class="st-img rounded-circle mx-3" src="{{ $teaching->classroom->user->image ? asset($teaching->classroom->user->image) : asset('assets/defaultProfile.png')}}" alt="" width="52" height="52" />
                                         <div class="lvr vr "></div>
@@ -123,13 +122,15 @@
 
                         <!-- Joined Classes start -->
                         @if($joins->count()>0)
-                            <div class="pc d-flex my-3">
+                            <div class="pc d-flex">
                                 <div class="col-6 d-flex">
-                                    <p>Joined<span class="dash-notification badge rounded-pill pb-1 ms-2"
+                                    <p class="foy-chead">Joined<span class="dash-notification badge rounded-pill pb-1 ms-2"
                                     >{{ $joins->count() }}</span></p>
                                 </div>
                                 <div class="col-6 text-end">
-                                    <p class="as-dt">view all</p>
+                                    <p class="as-dt">
+                                        <a href="/classJoined/{{ auth()->user()->id }}" class="foy-see-more">view all</a>
+                                    </p>
                                 </div>
                             </div>
                             @foreach ($joins as $join)
@@ -175,253 +176,319 @@
                             @endforeach
                         @endif
                         <!-- Joined Classes end -->
-
                         <!-- star-student-start -->
-                        <div class="pc d-flex my-3">
-                            <div class="col-6 d-flex">
-                                <p >Star students<span class="dash-notification badge rounded-pill pb-1 ms-2"
-                                >3</span></p>
-                            </div>
-                            <div class="col-6 text-end">
-                                <p class="as-dt">view all</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="st-card col-lg-12 d-flex justify-content-between py-3 my-2">
-                            <div class="d-flex align-items-center">
-                                <div class="lvr vr mx-4"></div>
-                                <img
-                                class="st-img rounded-circle"
-                                src="assets/pexels-italo-melo-2379004.jpg"
-                                alt=""
-                                width="52"
-                                height="52"
-                                />
-                                <div class="course-tn mx-4">
-                                <div class="d-flex">
-                                    <p class="course-t m-0 ">Penelope
-                                    Chloe</p>
-                                    <img class="mx-3" src="assets/star1.png" alt="">
+                        @if($stars->count()>0)
+                            <div class="pc d-flex">
+                                <div class="col-6 d-flex">
+                                    <p class="foy-chead">Star students<span class="dash-notification badge rounded-pill pb-1 ms-2"
+                                    >{{ $stars->count() }}</span></p>
                                 </div>
-                                <p class="course-n m-0">Penelope
-                                    Chloe@gmail.com</p>
+                                <div class="col-6 text-end">
+                                    <p class="as-dt">
+                                        <a href="/classStars/{{ auth()->user()->id }}" class="foy-see-more">view all</a>
+                                    </p>
                                 </div>
                             </div>
-                            <!-- dropdown start -->
-                            <div class="more p-2 mx-4 my-2 dropdown">
-                                <i
-                                class="fa-solid fa-ellipsis-vertical"
-                                type="button"
-                                id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            ></i>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <div class="mh">
-                                    <li><P class="dropdown-item" href="#">Email Address:</P></li>
-                                    <li><P class="dropdown-item" href="#">Ryann Rodgers@gmail.com</P></li>
-                                    <li><hr class="dropdown-divider"></li>
+                            @foreach($stars as $star)
+                                <div class="st-card col-lg-12 d-flex justify-content-between py-3 my-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="lvr vr mx-4"></div>
+                                        <img
+                                        class="st-img rounded-circle"
+                                        src="{{ $star->classroomMember->user->image ? asset($star->classroomMember->user->image) : asset('assets/defaultProfile.png') }}"
+                                        alt=""
+                                        width="52"
+                                        height="52"
+                                        />
+                                        <div class="course-tn mx-4">
+                                        <div class="d-flex">
+                                            <?php // dd($star->classroomMember); ?>
+                                            <p class="course-t m-0 ">{{ $star->classroomMember->user->name }}</p>
+                                            <img class="ms-3" src="assets/star1.png" alt=""><span class="dash-notification badge rounded-pill ms-2"
+                                            >{{ $star->classroomMember->classroomStars->count() }}</span></>
+                                        </div>
+                                        <p class="course-n m-0"> {{ $star->classroomMember->user->email }}</p>
+                                        </div>
+                                    </div>
+                                    <!-- dropdown start -->
+                                    <div class="more p-2 mx-4 my-2 dropdown">
+                                        <i class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                                        <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <a class="dd-item dropdown-item py-2 border-bottom" href="/assignmentSubmissions/{{ $star->assignment_id }}">Assignment</a>
+                                            </li>
+                                            <li><a class="dd-item dropdown-item py-2" href="/unpinClass/">Send Mail</a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- dropdown end -->
                                 </div>
-                                <li><a class="dd-item dropdown-item" href="#">Remove</a></li>
-                                <li><a class="dd-item dropdown-item" href="#">Make host</a></li>
-                                </ul>
-                            </div>
-                            <!-- dropdown end -->
-                        </div>
-                        <!-- star-student-end -->
-
-                        <div class="st-card col-lg-12 d-flex justify-content-between py-3 my-2">
-                            <div class="d-flex align-items-center">
-                                <div class="lvr vr mx-4"></div>
-                                <img
-                                class="st-img rounded-circle"
-                                src="assets/pexels-italo-melo-2379004.jpg"
-                                alt=""
-                                width="52"
-                                height="52"
-                                />
-                                <div class="course-tn mx-4">
-                                <div class="d-flex">
-                                    <p class="course-t m-0 ">Penelope
-                                    Chloe</p>
-                                    <img class="mx-3" src="assets/star1.png" alt="">
-                                </div>
-                                <p class="course-n m-0">Penelope
-                                    Chloe@gmail.com</p>
-                                </div>
-                            </div>
-                            <!-- dropdown start -->
-                            <div class="more p-2 mx-4 my-2 dropdown">
-                                <i
-                                class="fa-solid fa-ellipsis-vertical"
-                                type="button"
-                                id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            ></i>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <div class="mh">
-                                    <li><P class="dropdown-item" href="#">Email Address:</P></li>
-                                    <li><P class="dropdown-item" href="#">Ryann Rodgers@gmail.com</P></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                </div>
-                                <li><a class="dd-item dropdown-item" href="#">Remove</a></li>
-                                <li><a class="dd-item dropdown-item" href="#">Make host</a></li>
-                                </ul>
-                            </div>
-                            <!-- dropdown end -->
-                        </div>
-                        <!-- star-student-end -->
-
-                        <div class="st-card col-lg-12 d-flex justify-content-between py-3 my-2">
-                            <div class="d-flex align-items-center">
-                                <div class="lvr vr mx-4"></div>
-                                <img
-                                class="st-img rounded-circle"
-                                src="assets/pexels-italo-melo-2379004.jpg"
-                                alt=""
-                                width="52"
-                                height="52"
-                                />
-                                <div class="course-tn mx-4">
-                                <div class="d-flex">
-                                    <p class="course-t m-0 ">Penelope
-                                    Chloe</p>
-                                    <img class="mx-3" src="assets/star1.png" alt="">
-                                </div>
-                                <p class="course-n m-0">Penelope
-                                    Chloe@gmail.com</p>
-                                </div>
-                            </div>
-                            <!-- dropdown start -->
-                            <div class="more p-2 mx-4 my-2 dropdown">
-                                <i
-                                class="fa-solid fa-ellipsis-vertical"
-                                type="button"
-                                id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            ></i>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <div class="mh">
-                                    <li><P class="dropdown-item" href="#">Email Address:</P></li>
-                                    <li><P class="dropdown-item" href="#">Ryann Rodgers@gmail.com</P></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                </div>
-                                <li><a class="dd-item dropdown-item" href="#">Remove</a></li>
-                                <li><a class="dd-item dropdown-item" href="#">Make host</a></li>
-                                </ul>
-                            </div>
-                            <!-- dropdown end -->
-                        </div>
-                        <!-- star-student-end -->
+                            @endforeach
+                        @endif
+                         <!-- star-student-end -->
                     </div>
                     {{-- end:left --}}
 
 
                     <!-- To-Do & To Review start-->
                     <div class="col-lg-4 col-md-12">
+                        {{-- start:to do --}}
+                        @php
+                            $notSub=0;
+                        @endphp
+                        @foreach ($toDos as $toDo)
+                            @php
+                                $classroom= $toDo->classroom;
+                            @endphp
+                            @foreach ($classroom->classroomPost as $post)
+                                @if ($post->assignment)
+                                    @php
+                                        $assignment= $post->assignment;
+                                        $aSub=0;
+                                    @endphp
+                                    @foreach ($assignment->assignmentSubmission as $submission)
+                                        @if($submission->added_by == auth()->user()->id)
+                                            @php
+                                                $aSub = 1;
+                                            @endphp
+                                            @break
+                                        @endif
+                                    @endforeach
+                                    @if($aSub != 1)
+                                        @php
+                                            $notSub++;
+                                        @endphp
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
                         <div class="pc d-flex">
-                        <div class="col-6 d-flex">
-                            <p class="as-tt">To Do <span class="dash-notification badge rounded-pill pb-1"
-                            >3</span></p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <a class="as-dt" href="#">view all</a>
-                        </div>
-                        </div>
-                        <div class="assignment">
-                            <div class="assignment-box p-4 pb-3 position-relative">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="#" class="text-decoration-none stretched-link"><p class="assignment-title m-0 oneline">Assignment 01 check ne line please</p></a>
-                                        <p class="as-sub ms-2 m-0">100</p>
-                                    </div>
-                                    {{-- <p class="assignment-title oneline">Assignment 01 check ne line please</p>
-                                    <p class="as-sub d-inline float-end">100 points</p> --}}
-                                    <p class="as-sub mt-2 mb-0 oneline">Digital Signal Processing khebhevwcbekbchwe chwbhb</p>
-                                    <p class="as-dt m-0 d-block">Today | 02:00 pm</p>
-                                </div>
+                            <div class="col-6 d-flex">
+                                <p class="as-tt">To Do <span class="dash-notification badge rounded-pill pb-1"
+                                >{{ $notSub }}</span></p>
                             </div>
-                            <div class="assignment-box p-4 pb-3">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="assignment-title m-0 oneline">Assignment 01 check ne line please</p>
-                                        <p class="as-sub ms-2 m-0">100</p>
-                                    </div>
-                                    {{-- <p class="assignment-title oneline">Assignment 01 check ne line please</p>
-                                    <p class="as-sub d-inline float-end">100 points</p> --}}
-                                    <p class="as-sub mt-2 mb-0 oneline">Digital Signal Processing khebhevwcbekbchwe chwbhb</p>
-                                    <p class="as-dt m-0 d-block">Today | 02:00 pm</p>
-                                </div>
-                            </div>
-                            <div class="assignment-box p-4 pb-3">
-                                <div class="col-12">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="assignment-title m-0 oneline">Assignment 01 check ne line please</p>
-                                        <p class="as-sub ms-2 m-0">100</p>
-                                    </div>
-                                    {{-- <p class="assignment-title oneline">Assignment 01 check ne line please</p>
-                                    <p class="as-sub d-inline float-end">100 points</p> --}}
-                                    <p class="as-sub mt-2 mb-0 oneline">Digital Signal Processing khebhevwcbekbchwe chwbhb</p>
-                                    <p class="as-dt m-0 d-block">Today | 02:00 pm</p>
-                                </div>
-                            </div>
-
-
-                            {{-- <div class="assignment-box d-flex p-3">
-                                <div class="col-6">
-                                <p class="assignment-title">Assignment 01</p>
-                                <p class="as-sub m-0">Digital Signal Processing</p>
-                                <p class="as-dt m-0">Today | 02:00 pm</p>
-                                </div>
+                            @if($notSub>3)
                                 <div class="col-6 text-end">
-                                <p class="as-sub">100 points</p>
+                                    <a class="as-dt" href="#">view all</a>
                                 </div>
-                            </div> --}}
+                            @endif
                         </div>
 
-                        <div class="pc d-flex mt-5">
-                        <div class="col-6 d-flex">
-                            <p class="as-tt">
-                            To Review
-                            <span class="dash-notification badge rounded-pill pb-1"
-                                >3</span
-                            >
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <a class="as-dt" href="#">view all</a>
-                        </div>
-                        </div>
-                        <div class="assignment">
-                        <div class="assignment-box d-flex p-4 pb-3">
-                            <div class="col-12">
-                                <p class="assignment-title d-inline">Assignment 01</p>
-                                <p class="as-sub d-inline float-end">100 points</p>
-                                <p class="as-sub mt-2 mb-0 d-block">Digital Signal Processing</p>
-                                <p class="as-dt m-0 d-block">Today | 02:00 pm</p>
+                        <div class="assignment my-2">
+                            @if($notSub>0)
+                                @php
+                                    $unsubCount=0;
+                                @endphp
+                                @foreach ($toDos as $toDo)
+                                    @php
+                                        $classroom= $toDo->classroom;
+                                    @endphp
+                                    {{-- @php
+                                        $unsubCount=0;
+                                    @endphp --}}
+                                    @foreach ($classroom->classroomPost as $post)
+                                        @if ($post->assignment)
+                                            @php
+                                                $assignment= $post->assignment;
+                                                $asSub=0;
+                                            @endphp
+                                            @foreach ($assignment->assignmentSubmission as $submission)
+                                                @if($submission->added_by == auth()->user()->id)
+                                                    @php
+                                                        $asSub=1;
+                                                    @endphp
+                                                    @break
+                                                @endif
+                                            @endforeach
+                                            @if($asSub !=1 )
+                                                <div class="assignment-box p-4 pb-3 position-relative">
+                                                    <div class="col-12">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <a href="/assignmentSubmit/{{ $assignment->id }}" class="text-decoration-none"><p class="assignment-title m-0 oneline">{{ $assignment->title }}</p></a>
+                                                            <p class="as-sub ms-2 m-0">{{ $assignment->points }} points</p>
+                                                        </div>
+
+                                                        <p class="as-sub mt-2 mb-0 oneline">{{ $classroom->name }}</p>
+                                                        <p class="as-dt m-0 d-block">
+                                                            <?php
+                                                                $datetime = new DateTime();
+                                                                $curDate =$datetime->format('Y-m-d g:i:s');
+                                                            ?>
+                                                            @if($assignment->due_date_time)
+                                                                @if( $curDate > $assignment->due_date_time)
+                                                                    {{ "Exceded ".Carbon\Carbon::parse($assignment->due_date_time)->format('M d, Y')}}
+                                                                @elseif(date('Y-m-d') == Carbon\Carbon::parse($assignment->due_date_time)->format('Y-m-d'))
+                                                                    {{ "Due Today ".Carbon\Carbon::parse($assignment->due_date_time)->format('g:i A')}}
+
+                                                                @else
+                                                                    {{ "Due ".Carbon\Carbon::parse($assignment->due_date_time)->format('D m').", ".Carbon\Carbon::parse($assignment->due_date_time)->format('g:i A') }}
+                                                                @endif
+                                                            @else
+                                                                {{ "No due date" }}
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                @php
+                                                    $unsubCount++;
+                                                @endphp
+                                                @if ($unsubCount>2)
+                                                    @break
+                                                @endif
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                    @if ($unsubCount>2)
+                                        @break
+                                    @endif
+                                @endforeach
+                            @else
+                            <div class="text-center">
+                                <div class="col-12">
+                                <img src="{{ asset('assets/images/tea.png') }}" class="foy-td-image py-5">
+                                </div>
                             </div>
+                            @endif
                         </div>
-                        <div class="assignment-box d-flex p-4 py-3">
-                            <div class="col-12">
-                                <p class="assignment-title d-inline">Assignment 01</p>
-                                <p class="as-sub d-inline float-end">100 points</p>
-                                <p class="as-sub mt-2 mb-0 d-block">Digital Signal Processing</p>
-                                <p class="as-dt m-0 d-block">Today | 02:00 pm</p>
+                        {{-- end:to do --}}
+                        {{-- start:to review --}}
+                        @if(auth()->user()->role == 'teacher')
+                            @php
+                                $notReview=0;
+                            @endphp
+                            @foreach ($toReviews as $toReview)
+                                @php
+                                    $classroom= $toReview->classroom;
+                                @endphp
+                                @foreach ($classroom->classroomPost as $post)
+                                    @if ($post->assignment)
+                                        @php
+                                            $assignment= $post->assignment;
+                                        @endphp
+                                        @if($assignment->assignmentSubmission)
+                                            @foreach ($assignment->assignmentSubmission as $submission)
+                                                @if($submission)
+                                                    @if($submission->grade == null )
+                                                        @php
+                                                            $notReview++;
+                                                        @endphp
+                                                        @break
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endif
+                                @endforeach
+                            @endforeach
+                            <div class="pc d-flex mt-5">
+                                <div class="col-6 d-flex">
+                                    <p class="as-tt">To Review <span class="dash-notification badge rounded-pill pb-1"
+                                    >{{ $notReview }}</span></p>
+                                </div>
+                                @if($notReview>3)
+                                    <div class="col-6 text-end">
+                                        <a class="as-dt" href="#">view all</a>
+                                    </div>
+                                @endif
                             </div>
-                        </div>
-                        <div class="assignment-box d-flex p-4 py-3">
-                            <div class="col-12">
-                                <p class="assignment-title d-inline">Assignment 01</p>
-                                <p class="as-sub d-inline float-end">100 points</p>
-                                <p class="as-sub mt-2 mb-0 d-block">Digital Signal Processing</p>
-                                <p class="as-dt m-0 d-block">Today | 02:00 pm</p>
+                            <div class="assignment my-2">
+                                @if($notReview>0)
+                                    @php
+                                        $unReviewCount=0;
+                                    @endphp
+                                    @foreach ($toReviews as $toReview)
+                                        @php
+                                            $classroom= $toReview->classroom;
+                                        @endphp
+                                        @foreach ($classroom->classroomPost as $post)
+                                            @if ($post->assignment)
+                                                @php
+                                                    $assignment= $post->assignment;
+                                                    $nullReview = 0;
+                                                    $graded=0;
+                                                @endphp
+                                                @if($assignment->assignmentSubmission)
+                                                    @foreach ($assignment->assignmentSubmission as $submission)
+                                                        @if($submission)
+                                                            @if($submission->grade == null)
+                                                                @php
+                                                                    $nullReview = 1;
+                                                                @endphp
+                                                            @else
+                                                                @php
+                                                                    $graded++;
+                                                                @endphp
+                                                            @endif
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                                @if($nullReview == 1 )
+                                                    <div class="assignment-box p-4 pb-3 position-relative">
+                                                        <div class="col-12">
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <a href="/assignmentSubmit/{{ $assignment->id }}" class="text-decoration-none stretched-link"><p class="assignment-title m-0 oneline">{{ $assignment->title }}</p></a>
+                                                                {{-- <p class="as-sub ms-2 m-0">{{ $assignment->points }} points</p> --}}
+                                                                @php
+                                                                    $totalSubs = $assignment->assignmentSubmission->count();
+                                                                    $gradePercentage = 0;
+                                                                    if($graded != 0){
+                                                                        $gradePercentage = ($graded/$totalSubs)*100;
+                                                                    }
+                                                                @endphp
+                                                                <div class="progress foy-progress col-md-3 col-sm-4">
+                                                                    @if ($gradePercentage <= 1)
+                                                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> 0%</div>
+                                                                    @else
+                                                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ $gradePercentage }}%" aria-valuenow="{{ $gradePercentage }}" aria-valuemin="0" aria-valuemax="100">{{ intval($gradePercentage) }}%</div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+
+
+                                                            <p class="as-sub mt-2 mb-0 oneline">{{ $classroom->name }}</p>
+                                                            <p class="as-dt m-0 d-block">
+                                                                <?php
+                                                                    $datetime = new DateTime();
+                                                                    $curDate =$datetime->format('Y-m-d g:i:s');
+                                                                ?>
+                                                                @if($assignment->due_date_time)
+                                                                    @if( $curDate > $assignment->due_date_time)
+                                                                        {{ "Exceded ".Carbon\Carbon::parse($assignment->due_date_time)->format('M d, Y')}}
+                                                                    @elseif(date('Y-m-d') == Carbon\Carbon::parse($assignment->due_date_time)->format('Y-m-d'))
+                                                                        {{ "Due Today ".Carbon\Carbon::parse($assignment->due_date_time)->format('g:i A')}}
+
+                                                                    @else
+                                                                        {{ "Due ".Carbon\Carbon::parse($assignment->due_date_time)->format('D m').", ".Carbon\Carbon::parse($assignment->due_date_time)->format('g:i A') }}
+                                                                    @endif
+                                                                @else
+                                                                    {{ "No due date" }}
+                                                                @endif
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    @php
+                                                        $unReviewCount++;
+                                                    @endphp
+                                                    @if ($unReviewCount>2)
+                                                        @break
+                                                    @endif
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                        @if ($unReviewCount>2)
+                                            @break
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <div class="text-center">
+                                        <div class="col-12">
+                                        <img src="{{ asset('assets/images/tea.png') }}" class="foy-td-image py-5">
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
-                        </div>
-                        </div>
+                        @endif
+                        {{-- end:to review --}}
                     </div>
                     <!-- To-Do & To Review end-->
                 </div>

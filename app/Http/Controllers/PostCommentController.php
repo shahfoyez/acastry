@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Assignment;
 use App\Models\PostComment;
 use App\Http\Requests\StorePostCommentRequest;
 use App\Http\Controllers\PostCommentController;
@@ -44,6 +45,37 @@ class PostCommentController extends Controller
             'post_id' => $post,
             'comment' => request()->input('comment'),
             'added_by' => auth()->user()->id
+        ]);
+        return back();
+    }
+
+    public function addAssignmentPublicComment(Assignment $assignment)
+    {
+        // dd($assignment->post_id);
+        $post= $assignment->post_id;
+        $attributes=request()->validate([
+            'public_comment'=> 'required | min:1 | max:255'
+        ]);
+        PostComment::create([
+            'post_id' => $post,
+            'comment' => request()->input('public_comment'),
+            'added_by' => auth()->user()->id,
+            'status' => 'public'
+        ]);
+        return back();
+    }
+    public function addAssignmentPrivateComment(Assignment $assignment)
+    {
+        // dd($assignment);
+        $post= $assignment->post_id;
+        $attributes=request()->validate([
+            'private_comment'=> 'required | min:1 | max:255'
+        ]);
+        PostComment::create([
+            'post_id' => $post,
+            'comment' => request()->input('private_comment'),
+            'added_by' => auth()->user()->id,
+            'status' => 'private'
         ]);
         return back();
     }

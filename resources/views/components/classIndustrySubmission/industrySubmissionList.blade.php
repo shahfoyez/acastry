@@ -1,0 +1,11 @@
+@if($attachment->type=='image/png' || $attachment->type=='image/jpeg')
+    @include('components.classIndustrySubmission.image')
+@elseif($attachment->type=='application/pdf')
+    @include('components.classIndustrySubmission.pdf')
+@elseif($attachment->type=='application/x-zip-compressed')
+    @include('components.classIndustrySubmission.zip')
+@elseif($attachment->type=='application/msword')
+    @include('components.classIndustrySubmission.doc')
+@elseif($attachment->type=='video/mp4')
+    @include('components.classIndustrySubmission.video')
+@endif

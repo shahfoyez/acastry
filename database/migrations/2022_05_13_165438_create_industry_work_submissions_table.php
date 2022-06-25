@@ -21,7 +21,18 @@ return new class extends Migration
                 ->on('industry_works')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
-
+            $table->unsignedBigInteger('ciw_id');
+            $table->foreign('ciw_id')
+                ->references('id')
+                ->on('classroom_industry_works')
+                ->onDelete('cascade')
+                ->onUpdate('No Action');
+            $table->unsignedBigInteger('classroom_id');
+            $table->foreign('classroom_id')
+                ->references('id')
+                ->on('classrooms')
+                ->onDelete('cascade')
+                ->onUpdate('No Action');
             $table->unsignedBigInteger('added_by');
             $table->foreign('added_by')
                 ->references('id')

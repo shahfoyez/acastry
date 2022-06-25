@@ -19,7 +19,7 @@
                 </div>
                 <p class="course-n m-0">{{ Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</p>
             </div>
-        </div> 
+        </div>
         {{-- dropdown start --}}
         @if(auth()->user()->id == $post->added_by)
             <div class="more mx-4 my-2 dropdown">
@@ -52,7 +52,7 @@
 
     <!-- start:slider -->
     @if($post->generalPost->generalPostAttachment->count()>0)
-    <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
+    <div id="carouselControl{{ $post->id }}" class="carousel slide px-2" data-bs-interval="false">
         <div class="carousel-inner">
            <?php
                 $chunks= $post->generalPost->generalPostAttachment->chunk(3);
@@ -82,11 +82,13 @@
                 }
             ?>
         </div>
-        <a class="carousel-control-next next-width" href="#carouselExampleControls" role="button"  data-bs-slide="next">
+        @if($post->generalPost->generalPostAttachment->count()>3)
+        <a class="carousel-control-next next-width" href="#carouselControl{{ $post->id }}" role="button"  data-bs-slide="next">
             <span class="next-bt" aria-hidden="true">
                 <i class="fas fa-angle-right "></i>
             </span>
         </a>
+        @endif
     </div>
     @endif
     <!-- end:slider -->

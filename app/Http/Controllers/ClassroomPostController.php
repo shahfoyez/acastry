@@ -38,9 +38,9 @@ class ClassroomPostController extends Controller
             'post_id'=> $classroomPost->id,
             'added_by'=> $added_by
         ]);
-        
+
         if ($request->has('files')){
-             
+
             foreach(request()->file('files') as $key => $file)
             {
                 $fileName='FILE_'.md5(date('d-m-Y H:i:s')).$file->getClientOriginalName();

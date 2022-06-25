@@ -2,7 +2,7 @@
 <section class="navigation-bar" style="background: #ecf4fe">
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-light">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="{{ asset('assets/logo1.png') }}" alt="" class="d-inline-block align-top" />
             </a>
             <button

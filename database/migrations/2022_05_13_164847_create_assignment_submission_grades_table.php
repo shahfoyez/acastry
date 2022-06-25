@@ -15,20 +15,20 @@ return new class extends Migration
     {
         Schema::create('assignment_submission_grades', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('assignment_id');
-            $table->foreign('assignment_id')
+            $table->unsignedBigInteger('assignment_submission_id');
+            $table->foreign('assignment_submission_id')
                 ->references('id')
-                ->on('assignments')
+                ->on('assignment_submissions')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
-            $table->integer('grade');
+            $table->integer('points');
             $table->unsignedBigInteger('added_by');
             $table->foreign('added_by')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
-            $table->unsignedBigInteger('updated_by');
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('updated_by')
             ->references('id')
             ->on('users')

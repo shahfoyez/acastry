@@ -21,12 +21,20 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->string('type');
             $table->string('topic')->nullable();
+            $table->unsignedBigInteger('topic_id')->nullable();
+            $table->foreign('topic_id')
+            ->references('id')
+            ->on('topics')
+            ->onDelete('cascade')
+            ->onUpdate('No Action');
+
             $table->unsignedBigInteger('added_by');
             $table->foreign('added_by')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
+
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('updated_by')
             ->references('id')

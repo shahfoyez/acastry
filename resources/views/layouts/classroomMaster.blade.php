@@ -16,9 +16,9 @@
         @include('modals.joinClassroom')
         @include('modals.validationError')
         @include('modals.confirmDelete')
-        @include('modals.createAssignment')
-        @include('modals.createMaterial')
-        @include('modals.createTopic')
+        {{-- @include('modals.createAssignment') --}}
+        {{-- @include('modals.createMaterial') --}}
+        {{-- @include('modals.createTopic') --}}
 
         <!--end::Modals-->
 
@@ -36,8 +36,8 @@
                 var deleteSlug= $(this).attr('data-item');
                 $("#foy-modal-item").attr("action", deleteSlug)
             });
-            $('#inner').on('click', function (ev) { 
-                ev.stopPropagation(); 
+            $('#inner').on('click', function (ev) {
+                ev.stopPropagation();
             });
         </script>
         {{-- delete post confirmation modal trigger --}}
@@ -165,6 +165,11 @@
                 document.execCommand("copy");
                 document.getElementById("btn-copy").innerHTML="Copied";
             }
-        </script> 
+        </script>
+        <script type="text/javascript">
+            @if (count($errors) > 0)
+                $('#validationError').modal('show');
+            @endif
+        </script>
     </body>
 </html>

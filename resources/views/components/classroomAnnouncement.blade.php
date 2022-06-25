@@ -27,18 +27,18 @@
                 {{-- end:image preview --}}
 
             </div>
-            
+
             <div class="d-flex justify-content-between align-content-center">
                 <div class="announce-icon m-2 ms-4">
                     <div class="foy-image-upload">
                         <input name="files[]" id="files" type="file" multiple accept="application/zip, application/msword, application/pdf, image/*, video/*"/>
                         <label for="file-input">
-                        <img src="{{  asset('assets/images/Frame 33589.png') }}"/>
+                            <img src="{{  asset('assets/images/Frame 33589.png') }}"/>
                         </label>
                     </div>
                 </div>
                 <div class="announce-postm-2 me-4 text-end">
-                    <button class="btn announce-b1 px-3 mx-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false">
+                    <button type="button" class="btn announce-b1 px-3 mx-2" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false">
                     Cancel
                     </button>
                     <button type="submit" class="btn announce-b2 px-3">Post</button>

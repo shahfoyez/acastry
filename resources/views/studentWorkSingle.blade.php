@@ -584,8 +584,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class='col-sm-4 foy-post-RearangeBox foy-post-imgThumbContainer'>
                                 <a href="image.jpg" download><i class='fa-solid fa-cloud-arrow-down foy-action-button' download>
                                 </i></a>
@@ -619,7 +617,6 @@
                         </div>
                      </div>
                 </div>
-
                 <!-- Right -->
             </div>
         <!-- Row -->

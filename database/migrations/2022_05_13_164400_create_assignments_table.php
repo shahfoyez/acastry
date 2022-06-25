@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('instruction');
-            $table->dateTime('due_date_time');
+            $table->string('instruction')->nullable();
+            $table->integer('points')->nullable();
+            $table->dateTime('due_date_time')->nullable();
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')
                 ->references('id')
@@ -30,13 +31,19 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
-            $table->unsignedBigInteger('updated_by');
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign('updated_by')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('No Action');
-            $table->string('topic');
+            $table->string('topic')->nullable();
+            $table->unsignedBigInteger('topic_id')->nullable();
+            $table->foreign('topic_id')
+            ->references('id')
+            ->on('topics')
+            ->onDelete('cascade')
+            ->onUpdate('No Action');
             $table->timestamps();
         });
     }

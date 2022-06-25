@@ -1,6 +1,12 @@
 @include('shared.header')
 <body>
+    @if(auth()->user()->role == "industry")
+    @include('navbar.industryNav')
+    @else
     @include('navbar.navbar')
+    @endif
+
+
 
     @yield('content')
 

@@ -11,11 +11,16 @@ class ClassroomMember extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    protected $with=['user','classroom'];
+    // protected $with=['user','classroom'];
+    protected $with=['user','classroomStars','classroom'];
+
     public function user(){
         return $this->belongsTo(User::class, 'member_id');
     }
     public function classroom(){
         return $this->belongsTo(Classroom::class, 'classroom_id');
+    }
+    public function classroomStars(){
+        return $this->hasMany(ClassroomStar::class, 'star_id');
     }
 }

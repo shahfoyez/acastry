@@ -16,15 +16,19 @@ return new class extends Migration
         Schema::create('industry_works', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('instruction');
-            $table->dateTime('due_date_time');
-            $table->string('category');
+            $table->string('instruction')->nullable();;
+            $table->integer('points')->nullable();
+            $table->dateTime('due_date_time')->nullable();
+             $table->string('subject');
+            $table->string('keyword')->nullable();
             $table->unsignedBigInteger('added_by');
             $table->foreign('added_by')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('No Action');
+            $table->integer('added')->nullable();
+            $table->integer('views')->nullable();
             $table->timestamps();
         });
     }
