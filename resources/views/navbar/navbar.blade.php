@@ -1,5 +1,5 @@
 <!-- navbar start -->
-<section class="navigation-bar" style="background: #ecf4fe">
+<section class="navigation-bar effect2" style="background: #ecf4fe">
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-light">
             <a class="navbar-brand" href="/">
@@ -29,6 +29,65 @@
                             </ul>
                         </div>
                     </li>
+
+
+                    <li class="nav-item dropdown notifications-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu-header">
+                                Notifications
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="row">
+                                    <div class="col-md-2 profile-img">
+                                        <img src="img/3.jpg" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <a href="">
+                                            <b>Axel</b> commented on your photo.
+                                            <br>
+                                            <small>10 minutes ago</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="row no-gutters">
+                                    <div class="col-md-2 profile-img">
+                                        <img src="img/3.jpg" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <a href="">
+                                            <b>Axel</b> liked your post.
+                                            <br>
+                                            <small>10 minutes ago</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-item">
+                                <div class="row no-gutters">
+                                    <div class="col-md-2 profile-img">
+                                        <img src="img/2.jpg" />
+                                    </div>
+                                    <div class="col-md-10">
+                                        <a href="">
+                                            <b>Alicia</b> accepted your request.
+                                            <br>
+                                            <small>20 minutes ago</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notifications-dropdown-footer">
+                                See All Notifications
+                            </div>
+                        </div>
+                    </li>
+
+
                     <li class="mx-3">
                         <a class="nav-link" href="#"
                         ><img
@@ -47,6 +106,11 @@
                             height="30"
                         /></a>
                     </li>
+
+
+
+
+
                     <li class="mx-3">
                         <!-- dropdown start -->
                         <div class="more p-2 dropdown d-flex align-item-center" >

@@ -61,10 +61,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/classJoined/{user}', 'classJoined');
         Route::get('/classroomstar/{user}/{assignment}/{classroom}', 'classroomStar');
         Route::get('/classroomStarRemove/{user}/{assignment}/{classroom}', 'classroomStarRemove');
-
         Route::get('/classIndustryStar/{user}/{classroomIndustryWork}/{classroom}', 'classIndustryStar');
         Route::get('/classIndustryStarRemove/{user}/{classroomIndustryWork}/{classroom}', 'classIndustryStarRemove');
         Route::get('/classroomPeople/{classroom}', 'classroomPeople');
+        Route::get('/teacherStars/{user}', 'teacherStars');
+
 
 
     });

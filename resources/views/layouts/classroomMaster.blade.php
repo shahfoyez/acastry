@@ -1,5 +1,5 @@
     @include('shared.header')
-    <body class="People-Page">
+    <body class="People-Page d-flex flex-column min-vh-100" >
         @include('navbar.navbar')
 
         {{-- start:main content --}}

@@ -3,51 +3,16 @@
 {{-- start:main section --}}
 <section class="main-content mb-5">
     <div class="container">
-        @include('components.classHead')
-        @include('navbar.classNav')
-
-        <!-- Teachres start -->
-        <!-- headline start -->
-        <div class="pc d-flex my-3">
-            <div class="col-6 d-flex">
-                <p>Teacher <span class="dash-notification badge rounded-pill pb-1"
-                    >{{ 1 }}</span></p>
-            </div>
-        </div>
-        <!-- headline end -->
-        <!-- Teachers body start -->
-        <div class="st-card col-lg-12 d-flex align-items-center justify-content-between py-3 px-4 my-2">
-            <div class="d-flex">
-                <img class="st-img rounded-circle mx-2" src="{{ $teacher->user->image ? asset($teacher->user->image) : asset('assets/defaultProfile.png')}}" alt="" width="42" height="42"
-                />
-                <div class="lvr vr mx-2"></div>
-                <div class="course-tn">
-                    <p class="course-t m-0">{{ $teacher->user->name }}</p>
-                    <p class="course-n m-0">Host</p>
-                </div>
-            </div>
-            <!-- dropdown start -->
-            <div class="more mx-3 dropdown">
-                <i class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                <ul class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dd-item dropdown-item py-2 border-bottom" href="#">Edit</a></li>
-                    <li><a class="dd-item dropdown-item py-2 border-bottom" href="">Unpin</a></li>
-                </ul>
-            </div>
-            <!-- dropdown end -->
-        </div>
-        <!-- Teachers body end -->
-        <!-- Teachers end -->
-
+        {{-- @include('navbar.classNav') --}}
 
         <!-- Students start -->
         <div class="pc d-flex my-3">
             <div class="col-6 d-flex">
-            <p>Students <span class="dash-notification badge rounded-pill pb-1"
-                >{{ $students->count() }}</span></p>
+            <p>Stars <span class="dash-notification badge rounded-pill pb-1"
+                >{{ $stars->count() }}</span></p>
             </div>
         </div>
-        @if ($students->count()>0)
+        @if ($stars->count()>0)
             <div class="col-12 m-auto">
                 <div class="st-table-title d-flex justify-content-between">
                     <p class="sta-p m-4 ms-5">Student name</p>
@@ -55,19 +20,24 @@
                     <p></p>
                 </div>
 
-                @foreach($students as $student)
+                @foreach($stars as $student)
                     <div class="st-table-body d-flex justify-content-between align-items-center py-3 px-4 my-2" >
                         <div class=" d-flex col-md-11">
                             <div class="d-flex align-items-center col-md-7">
                                 <div class="lvr vr mx-4"></div>
                                 <img class="st-img rounded-circle" src="{{ $student->user->image ? asset($student->user->image) : asset('assets/defaultProfile.png')}}" alt="" width="42" height="42" />
-                                <p class="st-card-p m-0 mx-2">{{ $student->user->name }}</p>
+                                <div class="d-flex mx-2">
+                                    <p class="course-t m-0 oneline">{{ $student->classroomMember->user->name }}</p>
+                                    <img class="ms-3" src="{{ asset('assets/images/star1.png') }}" alt=""><span class="dash-notification badge rounded-pill ms-2"
+                                    >{{ $student->classroomMember->classroomStars->count() }}</span></>
+                                </div>
                             </div>
                             <div class="email-add d-flex align-items-center">
                                 <i class="fa-regular fa-envelope fa-xl st-card-p2"></i>
                                 <p class="st-card-p2 m-0 mx-2">{{ $student->user->email }}</p>
                             </div>
                         </div>
+
                         <!-- dropdown start -->
                         <div class="more mx-4 dropdown">
                             <i class="fa-solid fa-ellipsis-vertical" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>

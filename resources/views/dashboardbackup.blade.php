@@ -201,13 +201,13 @@
                                         height="52"
                                         />
                                         <div class="course-tn mx-4">
-                                        <div class="d-flex">
-                                            <?php // dd($star->classroomMember); ?>
-                                            <p class="course-t m-0 ">{{ $star->classroomMember->user->name }}</p>
-                                            <img class="ms-3" src="assets/star1.png" alt=""><span class="dash-notification badge rounded-pill ms-2"
-                                            >{{ $star->classroomMember->classroomStars->count() }}</span></>
-                                        </div>
-                                        <p class="course-n m-0"> {{ $star->classroomMember->user->email }}</p>
+                                            <div class="d-flex">
+                                                <?php // dd($star->classroomMember); ?>
+                                                <p class="course-t m-0 ">{{ $star->classroomMember->user->name }}</p>
+                                                <img class="ms-3" src="assets/star1.png" alt=""><span class="dash-notification badge rounded-pill ms-2"
+                                                >{{ $star->classroomMember->classroomStars->count() }}</span></>
+                                            </div>
+                                            <p class="course-n m-0"> {{ $star->classroomMember->user->email }}</p>
                                         </div>
                                     </div>
                                     <!-- dropdown start -->

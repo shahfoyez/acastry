@@ -1,12 +1,10 @@
 @include('shared.header')
-<body>
+<body  class="d-flex flex-column min-vh-100">
     @if(auth()->user()->role == "industry")
-    @include('navbar.industryNav')
+        @include('navbar.industryNav')
     @else
-    @include('navbar.navbar')
+        @include('navbar.navbar')
     @endif
-
-
 
     @yield('content')
 

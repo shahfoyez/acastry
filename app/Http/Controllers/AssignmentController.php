@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
 use App\Models\Assignment;
 use Illuminate\Http\Request;
 use App\Models\ClassroomPost;
 use App\Models\AssignmentAttachment;
 use App\Http\Controllers\AssignmentController;
+use App\Models\AssignmentNotification;
 
 class AssignmentController extends Controller
 {
@@ -22,6 +24,7 @@ class AssignmentController extends Controller
 
     public function store($classroom)
     {
+        // dd($members);
         // after_or_equal:today
         // dd(request()->all());
         $added_by= auth()->user()->id;
@@ -63,6 +66,39 @@ class AssignmentController extends Controller
                 ]);
             }
         }
+
+        //Assignment Notification
+        $members = Classroom::get()->where('id', $classroom)->first();
+        $members = $members->classroomMembers;
+        $members = $members->filter(function($members) {
+            return $members->is_teacher == 0;
+        });
+        foreach($members as $member){
+            $notification  = AssignmentNotification::where('member_id', $member->id)
+            ->where('added_by', $added_by)
+            ->where('classroom_id', $classroom)->first();
+            // dd($notification->notifications + 1);
+            if($notification){
+                AssignmentNotification::where('member_id', $member->id)
+                ->where('added_by', $added_by)
+                ->where('classroom_id', $classroom)
+                ->update([
+                    'member_id' => $member->id,
+                    'added_by' => $added_by,
+                    'classroom_id' => $classroom,
+                    'notifications' => $notification->notifications + 1
+                ]);
+            }else{
+                AssignmentNotification::create([
+                    'member_id' => $member->id,
+                    'added_by' => $added_by,
+                    'classroom_id' => $classroom,
+                    'notifications' => 1
+                ]);
+            }
+
+        }
+
         return  back()->with('message', 'Assignment Added Successfully');
     }
 

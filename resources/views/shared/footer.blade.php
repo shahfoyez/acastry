@@ -1,25 +1,23 @@
-<section class="footer">
-    <hr class="new2 my-5" />
-    <div class="container">
-        <div class="footer d-flex flex-wrap justify-content-between my-4">
-        <div class="s-icon d-flex m-auto">
-            <img src="{{ asset('assets/Linkedin.png') }}" alt="" width="42" height="42" />
-            <img
-            class="mx-3"
-            src="{{ asset('assets/facebook.png') }}"
-            alt=""
-            width="42"
-            height="42"
-            />
-            <img src="{{ asset('assets/Twitter.png') }}" alt="" width="42" height="42" />
-        </div>
-        <div class="f-logo d-flex align-items-center m-auto">
-            <p class="m-3">A product of</p>
-            <img src="asset('assets/logo1.png')" alt="" />
-        </div>
-        <div class="f-rights d-flex align-items-center m-auto">
-            <p>© 2022 ACASTRY. All rights reserved.</p>
-        </div>
+<section class="main-footer mt-auto">
+    {{-- <hr class="new2" /> --}}
+    <div class="container foy-footer-container my-4">
+        <div class="footer d-flex flex-wrap justify-content-between">
+            <div class="s-icon d-flex align-items-center">
+                <a href="#" class="btn social-icon foy-facebook button" data-abc="true"><i class="foy-icon fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="btn social-icon foy-twitter button" data-abc="true"> <i class="foy-icon fa-brands fa-twitter"></i></a>
+                <a href="#" class="btn social-icon foy-linkedin button" data-abc="true"> <i class="foy-icon fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="btn social-icon foy-github button" data-abc="true">  <i class="foy-icon fa-brands fa-github"></i></a>
+                {{-- <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-github"></i> --}}
+            </div>
+            <div class="f-logo d-flex align-items-center">
+                <img src="{{ asset('assets/images/logo1.png') }}" alt="" />
+            </div>
+            <div class="f-rights d-flex align-items-center">
+                <p>© 2022 ACASTRY. All rights reserved.</p>
+            </div>
         </div>
     </div>
 </section>

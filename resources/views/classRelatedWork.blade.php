@@ -24,7 +24,7 @@
 }
 </style>
 {{-- start:main section --}}
-<section class="main-content">
+<section class="main-content mb-5">
   <div class="container">
     @include('components.classHead')
     <div class="row">

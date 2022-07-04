@@ -1,7 +1,7 @@
 @extends('layouts.classroomMaster')
 @section('content')
 {{-- start:main section --}}
-<section class="main-content mb-5">
+<section class="main-content">
     <div class="container">
         @include('components.classHead')
         @include('navbar.classNav')
@@ -57,16 +57,14 @@
 
                 @foreach($students as $student)
                     <div class="st-table-body d-flex justify-content-between align-items-center py-3 px-4 my-2" >
-                        <div class=" d-flex col-md-11">
-                            <div class="d-flex align-items-center col-md-7">
-                                <div class="lvr vr mx-4"></div>
-                                <img class="st-img rounded-circle" src="{{ $student->user->image ? asset($student->user->image) : asset('assets/defaultProfile.png')}}" alt="" width="42" height="42" />
-                                <p class="st-card-p m-0 mx-2">{{ $student->user->name }}</p>
-                            </div>
-                            <div class="email-add d-flex align-items-center">
-                                <i class="fa-regular fa-envelope fa-xl st-card-p2"></i>
-                                <p class="st-card-p2 m-0 mx-2">{{ $student->user->email }}</p>
-                            </div>
+                        <div class="d-flex align-items-center col-md-3">
+                            <div class="lvr vr mx-4"></div>
+                            <img class="st-img rounded-circle" src="{{ $student->user->image ? asset($student->user->image) : asset('assets/defaultProfile.png')}}" alt="" width="42" height="42" />
+                            <p class="st-card-p m-0 mx-2">{{ $student->user->name }}</p>
+                        </div>
+                        <div class="email-add d-flex align-items-center justify-content-between">
+                            <i class="fa-regular fa-envelope fa-xl st-card-p2"></i>
+                            <p class="st-card-p2 m-0 mx-2">{{ $student->user->email }}</p>
                         </div>
                         <!-- dropdown start -->
                         <div class="more mx-4 dropdown">

@@ -38,7 +38,7 @@
                 $assignment =$uncategorisesAP->assignment;
                 $i++;
             @endphp
-            <div class="accordion my-2" id="accordionExample">
+            <div class="accordion my-2 foy-accordion" id="accordionExample">
                 <div class="accordion-item">
                     @include('components.classwork.accordionHeader')
                     <div id="collapse{{ $i }}" class="accordion-collapse collapse" aria-labelledby="heading"

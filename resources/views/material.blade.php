@@ -1,7 +1,7 @@
 @extends('layouts.classroomMaster')
 @section('content')
 {{-- start:main section --}}
-<section class="main-content">
+<section class="main-content mb-5">
   <div class="container">
     @include('components.classHead')
     <div class="row">
@@ -29,7 +29,7 @@
                         $material =$uncategorisesMP->material;
                         $i++;
                     @endphp
-                    <div class="accordion my-2" id="accordionExample">
+                    <div class="accordion my-2 foy-accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header foy-material" id="headingone">
                             <button
@@ -119,7 +119,7 @@
                     @php
                         $i++;
                     @endphp
-                    <div class="accordion my-2" id="accordionExample">
+                    <div class="accordion my-2 foy-accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header foy-material" id="headingone">
                             <button

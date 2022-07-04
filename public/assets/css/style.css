@@ -86,7 +86,8 @@ body {
   color: #6bd6bc;
 }
 hr.new2 {
-  border-top: 2px dashed #1a3447;
+    margin-top: 0px;
+    border-top: 2px dashed #1a3447;
 }
 .dash-notification {
   background-color: #29a3da;
@@ -267,8 +268,13 @@ hr.new2 {
   top: 50%;
   border-radius: 20px;
 }
-.footer {
-  font-family: "Poppins", sans-serif;
+
+.main-footer {
+    background: #f4f9ffc2;
+    border-top: 1px dashed #a9a9a9;
+    font-family: "Poppins", sans-serif;
+    padding-bottom: 1px !important;
+    box-shadow: -5px -5px 10px #e4e4e46e;
 }
 /* card video start*/
 

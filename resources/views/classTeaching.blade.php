@@ -1,6 +1,6 @@
 @extends('layouts.dashboardMaster')
 @section('content')
-<section class="main-content">
+<section class="main-content mb-5">
     <div class="container">
         <div class="row ">
             <div class="pc my-4">

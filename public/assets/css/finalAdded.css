@@ -58,7 +58,7 @@
     margin-bottom: 10px;
     border-bottom: 1px solid rgba(41, 163, 218, 0.1);
     border-top: 1px solid rgba(41, 163, 218, 0.1);
-    /* filter: drop-shadow(0px 10px 30px rgba(183, 183, 183, 0.1)); */
+    filter: drop-shadow(0px 10px 30px rgba(183, 183, 183, 0.1));
 }
 .foy-nav-link{
     padding: 15px 12px;
@@ -678,6 +678,30 @@ padding:0px;
         height: 1.2rem;
         font-size: .60rem;
     }
+    .st-table-body {
+        padding: 1rem 0rem !important;
+    }
+    .lvr {
+        margin-right: 1rem !important;
+    }
+    .footer{
+        justify-content: center !important;
+    }
+    .f-logo{
+        justify-content: center !important;
+    }
+    .f-logo img{
+        width: 70%;
+        margin: 10px 0px 10px 0px;
+    }
+    .social-icon {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 18px !important;
+    }
+    .f-rights{
+        display: none !important;
+    }
 }
 .iw-points, .iw-due, .iw-subject, .iw-keyword {
     width: 22%;
@@ -897,4 +921,154 @@ padding:0px;
     box-shadow: 5px 10px 35px rgba(181, 180, 180, 0.15);
     border-radius: 20px;
 }
+.foy-accordion {
+    box-shadow: 0px 15px 40px rgb(183 183 183 / 12%);
+}
+
+.effect2
+{
+    -webkit-box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
+    -moz-box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
+    box-shadow:  0px 0px 9px 3px rgb(109 109 109 / 14%);
+}
+
+
+
+
+/* footer */
+.f-rights p {
+    background: linear-gradient(to right, #00acea 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    margin-bottom: 0rem;
+    font-weight: 500;
+}
+.social-icon {
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    width: 50px;  height: 50px;
+    text-align: center;
+    font-size: 25px;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 12px;
+    transition: .5s;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 6%), 0 4px 8px rgb(0 0 0 / 6%);
+}
+.social-icon:hover{
+    box-shadow: 0 10px 20px rgb(0 0 0 / 6%), 0 4px 8px rgb(0 0 0 / 6%);
+}
+.foy-icon{
+    transform: rotateY(0deg);
+    transition: .9s;
+}
+.fa-facebook-f{
+    color: #3b5999;
+}
+.fa-twitter{
+    color: #55acee;
+}
+.fa-linkedin-in{
+    color: #0077B5;
+}
+.fa-github{
+    color: #000000;
+}
+.social-icon:hover .foy-icon{
+    transform: rotateY(360deg);
+    color: #fff;
+}
+
+.social-icon::before{
+    content: '';
+    position: absolute;
+    top: 100%;  left: 0;
+    width: 100%;  height: 100%;
+    border-radius: 50%;
+    transform: scale(.9);
+    z-index: -1;
+    transition: .9s;
+}
+.foy-facebook::before{
+    background: #3b5999;
+}
+.foy-twitter::before{
+    background: #55acee;
+}
+
+.foy-linkedin::before{
+    background: #0077B5;
+}
+.foy-github::before{
+    background: #000000;
+}
+.social-icon:hover::before{
+    top: 0;
+}
+
+
+.notifications-dropdown .dropdown-menu {
+	padding-top: 0;
+	padding-bottom: 0;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.notifications-dropdown .dropdown-menu-header {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 6px;
+    background: #e74c3c;
+    color: #FFF;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.notifications-dropdown .dropdown-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-width: 350px;
+    white-space: inherit;
+	border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.notifications-dropdown .dropdown-item:last-child {
+	border-bottom: none;
+}
+
+.notifications-dropdown .dropdown-item small {
+    color: #6f6f6f;
+}
+
+.notifications-dropdown a {
+	color: #333;
+	text-decoration: none;
+	font-size: 14px;
+    display: block;
+    width: 100%;
+    padding-top: 2px;
+    padding-left: 8px;
+}
+
+.notifications-dropdown img {
+    border-radius: 100px;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border: 2px solid #e74c3c;
+}
+
+.notifications-dropdown-footer {
+	text-align: center;
+    font-size: 13px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background: #e2e2e2;
+    text-transform: uppercase;
+}
+
+
 

@@ -237,11 +237,21 @@ class ClassroomController extends Controller
             ->delete();
         return back()->with('star', 'Star Removed successfully');
     }
+    public function teacherStars($user)
+    {
+        $stars = ClassroomStar::orderBy('created_at', 'DESC')->get()
+            ->where('added_by', auth()->user()->id);
+        $stars = $stars->each(function($stars) {
+        })->unique('star_id');
+        return view('teacherStars', [
+            'stars' => $stars
+        ]);
+
+    }
 
     public function classIndustryStar($user, $classroomIndustryWork, $classroom)
     {
         // dd($classroom);
-
         $classroomStar= ClassroomStar::create([
             'classroom_id'=> $classroom,
             'ciw_id'=> $classroomIndustryWork,

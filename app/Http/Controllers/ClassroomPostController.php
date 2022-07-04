@@ -56,6 +56,8 @@ class ClassroomPostController extends Controller
                 ]);
             }
         }
+
+
         return back()->with('message','Post uploded successfully!');
         // Convert a link into embed
         // if (filter_var($request->title, FILTER_VALIDATE_URL)) {

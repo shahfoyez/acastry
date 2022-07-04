@@ -1,7 +1,7 @@
 @extends('layouts.dashboardMaster')
 @section('content')
 <!-- Begin Page Content -->
-<section class="main-content">
+<section class="main-content mb-5">
     <div class="container">
         {{-- @if (session()->has('message'))
             <div x-data="{ show:true }"
@@ -177,7 +177,7 @@
                         @endif
                         <!-- Joined Classes end -->
                         <!-- star-student-start -->
-                        @if($stars->count()>0)
+                        @if(auth()->user()->role=='teacher' && $stars->count()>0)
                             <div class="pc d-flex">
                                 <div class="col-6 d-flex">
                                     <p class="foy-chead">Star students<span class="dash-notification badge rounded-pill pb-1 ms-2"
@@ -185,7 +185,7 @@
                                 </div>
                                 <div class="col-6 text-end">
                                     <p class="as-dt">
-                                        <a href="/classStars/{{ auth()->user()->id }}" class="foy-see-more">view all</a>
+                                        <a href="/teacherStars/{{ auth()->user()->id }}" class="foy-see-more">view all</a>
                                     </p>
                                 </div>
                             </div>
@@ -437,6 +437,8 @@
                                                                 <div class="progress foy-progress col-md-3 col-sm-4">
                                                                     @if ($gradePercentage <= 1)
                                                                         <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"> 0%</div>
+                                                                    @elseif($gradePercentage <50)
+                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $gradePercentage }}%" aria-valuenow="{{ $gradePercentage }}" aria-valuemin="0" aria-valuemax="100">{{ intval($gradePercentage) }}%</div>
                                                                     @else
                                                                         <div class="progress-bar bg-success" role="progressbar" style="width: {{ $gradePercentage }}%" aria-valuenow="{{ $gradePercentage }}" aria-valuemin="0" aria-valuemax="100">{{ intval($gradePercentage) }}%</div>
                                                                     @endif
